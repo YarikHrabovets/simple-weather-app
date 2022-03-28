@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Weather</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/index_style.css">
+	<script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+	<header style="background: #606470;">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid">
+				<img src="/image/weather-logo.png" style="max-width: 50px;">
+		    	<div class="position-absolute top-50 start-50 translate-middle">
+					<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+			    		<div class="input-group">
+							<div class="input-group-text" id="btnGroupAddon"><ion-icon name="earth-outline"></ion-icon></div>
+							<input type="text" class="form-control" id="input-city" placeholder="Введите город" aria-label="Input group example" aria-describedby="btnGroupAddon">
+						</div>
+						<div class="btn-group me-2" role="group" aria-label="First group">
+							<button id='changeLocation' type="button" class="btn btn-outline-primary">Искать</button>
+						</div>
+					</div>
+				</div>
+				<button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+	        		<span class="navbar-toggler-icon"></span>
+	      		</button>
+	      	</div>
+		</nav>
+	</header>
+	<div class="navbar-collapse collapse" id="navbarCollapse">
+	    <ul class="navbar-nav text-center">
+			<li class="nav-item">
+			   <a class="nav-link active" href="history.html">История</a>
+			</li>
+			<li class="nav-item">
+			  	<a class="nav-link" href="settings.html">Настройки</a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link" href="about_app.html">О приложении</a>
+			</li>
+		</ul>
+	</div>
+	<div class="container-fluid" id='line'><div class="loader" id="linear"></div></div>
+	<div class="fs-5 text-center" id="liveAlertPlaceholder"></div>
+	<div class="container-fluid">
+		<div class="d-flex mt-3" title="Местоположение">
+			<img class="mb-3" src="/image/location.svg" style="max-width:48px;">
+			<p class="fs-1"><u id="city"></u></p>
+			<p class="fs-3" id="status"></p>
+		</div>
+		<div class="d-flex" title="Время">
+			<img class="mb-3" src="/image/clock.svg" style="max-width:40px;">
+			<p class="fs-2" id="time"></p>
+		</div>
+		<hr class="py-1" style="border-radius: 3px;">
+		<div class="row mt-3" title="Температура">
+			<div class="col-sm-3">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/temperature.svg" style="max-width:40px;">
+					<p class="fs-2" id="temperature"></p>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/min-temperature.svg" style="max-width:40px;">
+					<p class="fs-2" id="min-temperature"></p>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/max-temperature.svg" style="max-width:40px;">
+					<p class="fs-2" id="max-temperature"></p>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-sm-3" title="Восход (По вашему времени)">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/sunrise.svg" style="max-width:40px;">
+					<p class="fs-2" id="sunrise"></p>
+				</div>
+			</div>
+			<div class="col-sm-3" title="Закат (По вашему времени)">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/sunset.svg" style="max-width:40px;">
+					<p class="fs-2" id="sunset"></p>
+				</div>
+			</div>
+			<div class="col-sm-3" title="Скорость ветра">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/wind.svg" style="max-width:40px;">
+					<p class="fs-2" id="wind-speed"></p>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-sm-3" title="Облачность">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/cloud.svg" style="max-width:40px;">
+					<p class="fs-2" id="clouds"></p>
+				</div>
+			</div>
+			<div class="col-sm-3" title="Влажность">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/humidity.svg" style="max-width:40px;">
+					<p class="fs-2" id="humidity"></p>
+				</div>
+			</div>
+			<div class="col-sm-3" title="Видимость">
+				<div class="d-flex">
+					<img class="mb-3" src="/image/visibility.svg" style="max-width:40px;">
+					<p class="fs-2" id="visibility-distance"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/js/index.js"></script>
+	<script type="text/javascript">
+		eel.expose(getTemperatureInfo);
+		function getTemperatureInfo() {
+			const tempInfo = JSON.parse(localStorage.getItem("tempRadios"));
+			if(tempInfo != undefined) {
+				return tempInfo[1];
+			} else {
+				return "celsius";
+			}
+		}
+
+		getCurrentWeather();
+
+		eel.expose(alert);
+		function alert(message, type) {
+			let alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+  			let wrapper = document.createElement('div')
+  			wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+
+  			alertPlaceholder.append(wrapper);
+		}
+
+		changeLocation.onclick = async function() {
+			let city = document.getElementById("input-city").value;
+			if(city === "") {
+				alert("Вы не ввели город!", "warning");
+			} else {
+				document.getElementById("linear").style.visibility = "visible";
+				document.getElementById("input-city").value = "";
+				if(await eel.update(city)()) {
+					await eel._dump(city)();
+				}
+				getCurrentWeather();
+			}
+		}
+	</script>
+	<script type="text/javascript" src="/js/clock.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
