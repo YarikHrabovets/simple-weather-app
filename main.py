@@ -24,7 +24,7 @@ location = geo.split(',')[0]
 config_dict = get_default_config()
 config_dict['language'] = 'ru'
 
-owm = OWM('340ce2e89549964b40571041946d4ae9')
+owm = OWM('340ce2e89549964b40571041946d4ae9') # free api token for everyone 
 mgr = owm.weather_manager()
 geo_mgr = owm.geocoding_manager()
 obj = TimezoneFinder()
