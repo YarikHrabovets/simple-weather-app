@@ -55,3 +55,4 @@ class UserHistory:
 
                 with open(self.path, 'w', encoding='utf-8') as file_:
                     json.dump(data, file_, indent=4)
+
