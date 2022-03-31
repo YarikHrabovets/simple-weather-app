@@ -1,0 +1,6 @@
+eel
+pyowm
+geocoder
+pytz
+timezonefinder
+translate
