@@ -1,4 +1,4 @@
-eel
+Eel
 pyowm
 geocoder
 pytz
