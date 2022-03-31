@@ -42,6 +42,6 @@ Note: Please do not write anything in [history_list.json](https://github.com/Yar
       $ pip install -r requirements.txt
       ```
 
-## Note:
+## Note
 This is for educational purposes only, this may not be efficient to use. Also, this is just a demo on how
 JS and Python can be used together. However you can use it, if you wish.
