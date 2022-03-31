@@ -44,4 +44,4 @@ Note: Please do not write anything in [history_list.json](https://github.com/Yar
 
 ## Note
 This is for educational purposes only, this may not be efficient to use. Also, this is just a demo on how
-JS and Python can be used together. However you can use it, if you wish.
+JS and Python can be used together. However you can use it, if you want.
