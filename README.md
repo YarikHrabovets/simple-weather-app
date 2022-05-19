@@ -40,6 +40,7 @@ Note: Please do not write anything in [history_list.json](https://github.com/Yar
       ```sh
       $ cd simple-weather-app
       $ pip install -r requirements.txt
+      $ python main.py
       ```
 
 ## Note
