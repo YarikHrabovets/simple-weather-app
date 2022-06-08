@@ -7,7 +7,7 @@ People always need to know about the weather. This app could help you!🙃
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 <br>
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-orange.svg)](https://www.javascript.com)
+[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
 
 Using HTML, JavaScript and CSS to make highly customized, cross platfrom desktop app which use Python backends.
 <br>
