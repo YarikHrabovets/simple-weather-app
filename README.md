@@ -14,9 +14,9 @@ Using HTML, JavaScript and CSS to make highly customized, cross platfrom desktop
 <br>
 Note: Please do not write anything in [history_list.json](https://github.com/YarikHrabovets/simple-weather-app/blob/main/history_list.json)
 <hr>
-<img src="/samples/preview1.png" width="50%" />
-<img src="/samples/preview2.png" width="50%" />
-<img src="/samples/preview3.png" width="50%" />
+<img src="https://raw.githubusercontent.com/YarikHrabovets/simple-weather-app/main/samples/preview1.png" width="50%" />
+<img src="https://raw.githubusercontent.com/YarikHrabovets/simple-weather-app/main/samples/preview2.png" width="50%" />
+<img src="https://raw.githubusercontent.com/YarikHrabovets/simple-weather-app/main/samples/preview3.png" width="50%" />
 
 ## General Dependenices
   * Python(In general [eel](https://github.com/ChrisKnott/Eel))
