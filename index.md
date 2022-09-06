@@ -1,37 +1,48 @@
-## Welcome to GitHub Pages
+# simple-weather-app
+People always need to know about the weather. This app could help you!🙃
 
-You can use the [editor on GitHub](https://github.com/YarikGrabovets/simple-weather-app/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+![](https://api.visitorbadge.io/api/VisitorHit?user=YarikHrabovetsf&repo=simple-weather-app&countColor=%237B1E7A)
+[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/YarikHrabovets/simple-weather-app/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+<br>
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Using HTML, JavaScript and CSS to make highly customized, cross platfrom desktop app which use Python backends.
+<br>
+<br>
+Note: Please do not write anything in [history_list.json](https://github.com/YarikHrabovets/simple-weather-app/blob/main/history_list.json)
+<hr>
+<img src="https://raw.githubusercontent.com/YarikHrabovets/simple-weather-app/main/samples/preview1.png" width="50%" />
+<img src="https://raw.githubusercontent.com/YarikHrabovets/simple-weather-app/main/samples/preview2.png" width="50%" />
+<img src="https://raw.githubusercontent.com/YarikHrabovets/simple-weather-app/main/samples/preview3.png" width="50%" />
 
-### Markdown
+## General Dependenices
+  * Python(In general [eel](https://github.com/ChrisKnott/Eel))
+  * JS
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+ ## Specific Dependencies
+  * weather module:
+    * pyowm
+   
+  * timezone and geo modules:
+    * geocoder
+    * pytz
+    * timezonefinder
+    * datetime
 
-```markdown
-Syntax highlighted code block
+ * translation module: 
+    * translate
 
-# Header 1
-## Header 2
-### Header 3
+    ## Usage
+      * Clone the repo, and then
+      ```sh
+      $ cd simple-weather-app
+      $ pip install -r requirements.txt
+      $ python main.py
+      ```
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/YarikGrabovets/simple-weather-app/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Note
+This is for educational purposes only, this may not be efficient to use. Also, this is just a demo on how
+JS and Python can be used together. However you can use it, if you want.
